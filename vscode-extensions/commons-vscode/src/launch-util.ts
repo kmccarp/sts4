@@ -216,7 +216,7 @@ function createServerOptionsForPortComm(options: ActivatorOptions, context: VSCo
 }
 
 function prepareJvmArgs(options: ActivatorOptions, context: VSCode.ExtensionContext, jvm: JVM, port?: number): string[] {
-    const DEBUG = options.DEBUG;
+    const debug = options.DEBUG;
     const jvmHeap = getUserDefinedJvmHeap(options.workspaceOptions, options.jvmHeap);
     const jvmArgs = getUserDefinedJvmArgs(options.workspaceOptions);
 
@@ -245,7 +245,7 @@ function prepareJvmArgs(options: ActivatorOptions, context: VSCode.ExtensionCont
     if (jvmArgs) {
         args.unshift(...jvmArgs);
     }
-    if (DEBUG) {
+    if (debug) {
         args.unshift(DEBUG_ARG);
     }
     // Below is to fix: https://github.com/spring-projects/sts4/issues/811
